@@ -29,5 +29,7 @@ gem 'jquery-rails'
 
 group :development, :test do
   gem 'jasmine'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
