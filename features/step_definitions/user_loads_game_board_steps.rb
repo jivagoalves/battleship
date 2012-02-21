@@ -13,9 +13,9 @@ Then /^the player grid should have dimensions (\d+) por (\d+)$/ do |lines, colum
   page.should have_selector('#player_grid .square', :count => lines.to_i * columns.to_i)
 end
 
-Then /^the squares should be draggable$/ do
+Then /^the squares should not be draggable$/ do
   all('#player_grid .square').each do |square|
-    square['draggable'].should == "true"
+    square['draggable'].should_not == "true"
   end
 end
 

@@ -8,7 +8,7 @@ Feature: Load the game board
         When I go to the homepage
         Then I should see the player grid to arrange my ships
         And the player grid should have dimensions 10 por 10
-        And the squares should be draggable
+        And the squares should not be draggable
 
     Scenario: User loads the ships
         Given I want to play Battleship
