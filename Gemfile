@@ -38,3 +38,5 @@ group :development, :test do
   gem 'guard-cucumber'
 end
 
+gem 'haml'
+
