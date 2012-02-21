@@ -1,4 +1,5 @@
 Battleship::Application.routes.draw do
+  resources :games, :only => [:new]
   root :to => 'games#new'
 
   # The priority is based upon order of creation:
