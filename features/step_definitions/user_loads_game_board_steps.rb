@@ -5,6 +5,6 @@ When /^I go to the homepage$/ do
   visit root_path
 end
 
-Then /^I sould see the grid to arrange my ships on it$/ do
+Then /^I should see the grid to arrange my ships on it$/ do
   page.should have_selector('#player_grid')
 end
