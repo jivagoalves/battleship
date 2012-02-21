@@ -8,3 +8,13 @@ end
 Then /^I should see the player grid to arrange my ships$/ do
   page.should have_selector('#player_grid')
 end
+
+Then /^the player grid should have dimensions (\d+) por (\d+)$/ do |lines, columns|
+  page.should have_selector('#player_grid .square', :count => lines.to_i * columns.to_i)
+end
+
+Then /^the squares should be draggable$/ do
+  all('#player_grid .square').each do |square|
+    square['draggable'].should == "true"
+  end
+end
