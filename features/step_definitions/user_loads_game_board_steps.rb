@@ -20,5 +20,5 @@ Then /^the squares should be draggable$/ do
 end
 
 Then /^I should see (\d+) draggable ships$/ do |count|
-  page.should have_selector('ul li.ship[draggable=true]', :count => count.to_i)
+  page.should have_selector('ul.ships li.ship[draggable=true]', :count => count.to_i)
 end
