@@ -39,4 +39,5 @@ group :development, :test do
 end
 
 gem 'haml'
+gem 'backbone-on-rails'
 
