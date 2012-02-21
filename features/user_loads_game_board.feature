@@ -3,7 +3,7 @@ Feature: Load the game board
     As an user
     I want to see the game board
 
-    Scenario: Grid to arrange my ships
+    Scenario: User loads the player grid to arrange ships
         Given I want to play Battleship
         When I go to the homepage
         Then I should see the player grid to arrange my ships
