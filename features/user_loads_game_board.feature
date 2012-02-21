@@ -6,4 +6,4 @@ Feature: Load the game board
     Scenario: Grid to arrange my ships
         Given I want to play Battleship
         When I go to the homepage
-        Then I should see the grid to arrange my ships on it
+        Then I should see the player grid to arrange my ships
