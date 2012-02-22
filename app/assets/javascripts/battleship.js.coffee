@@ -3,7 +3,7 @@ window.Battleship =
   Collections: {}
   Views: {}
   Routers: {}
-  init: -> alert 'Hello from Backbone!'
+  init: ->
 
 $(document).ready ->
   Battleship.init()
