@@ -22,3 +22,12 @@ describe 'Application', ->
           spyOn Backbone.history, 'start'
           Battleship.init()
           expect(Backbone.history.start).toHaveBeenCalled()
+      it 'should initialize the routers', ->
+        routers = [
+          'Games'
+        ]
+        for router in routers
+          spyOn Battleship.Routers, router
+        Battleship.init()
+        for router in routers
+          expect(eval("Battleship.Routers.#{router}")).toHaveBeenCalled()

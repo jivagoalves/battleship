@@ -4,6 +4,7 @@ window.Battleship =
   Views: {}
   Routers: {}
   init: ->
+    new Battleship.Routers.Games()
     Backbone.history.start() if Backbone.history
 
 $(document).ready ->
