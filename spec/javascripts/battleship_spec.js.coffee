@@ -12,6 +12,8 @@ describe 'Application', ->
 
   describe 'Battleship', ->
     describe '#init', ->
+      beforeEach ->
+        Backbone.history.stop() if Backbone.history
       describe 'when there is at least one route', ->
         it 'should start the Backbone history', ->
           new Backbone.Router({
