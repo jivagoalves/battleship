@@ -3,3 +3,4 @@ class Battleship.Routers.Games extends Backbone.Router
     "": "index"
 
   index: ->
+    new Battleship.Views.ShipList()

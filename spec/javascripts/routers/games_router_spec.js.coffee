@@ -16,3 +16,7 @@ describe 'Games router', ->
       @router.bind 'route:index', callback
       @router.navigate "", true
       expect(callback).toHaveBeenCalled()
+    it 'should call the Ship list view', ->
+      Battleship.Views.ShipList = jasmine.createSpy().andReturn(new Backbone.View())
+      @router.navigate "", true
+      expect(Battleship.Views.ShipList).toHaveBeenCalled()
