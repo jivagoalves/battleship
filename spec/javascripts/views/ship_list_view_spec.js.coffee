@@ -15,7 +15,7 @@ describe 'ShipList view', ->
       @models = [1..3].map (id) ->
         new Backbone.Model({ id: id })
       @view.collection = new Backbone.Collection(@models)
-    it 'should render a Ship view for each ship', ->
+    it 'should create a Ship view for each ship', ->
       @view.render()
       expect(Battleship.Views.Ship.callCount).toEqual(@models.length)
       @models.forEach (model) ->
