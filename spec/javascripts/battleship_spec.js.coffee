@@ -29,7 +29,7 @@ describe 'Application', ->
           'Games'
         ]
         for router in routers
-          spyOn Battleship.Routers, router
+          @stub Battleship.Routers, router, true
         Battleship.init()
         for router in routers
-          expect(eval("Battleship.Routers.#{router}")).toHaveBeenCalled()
+          expect(Battleship.Routers[router]).toHaveBeenCalled()
