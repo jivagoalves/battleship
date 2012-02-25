@@ -14,16 +14,12 @@ describe 'Application', ->
     describe '#init', ->
       beforeEach ->
         Backbone.history.stop() if Backbone.history
-      describe 'when there is at least one route', ->
-        it 'should start the Backbone history', ->
-          new Backbone.Router({
-            routes:
-              "route": "callback"
-          })
-
-          spyOn Backbone.history, 'start'
-          Battleship.init()
-          expect(Backbone.history.start).toHaveBeenCalled()
+      it 'should start the Backbone.history when it exists', ->
+        @stub Backbone, 'history', true
+        Backbone.history.start = jasmine.createSpy()
+        Backbone.history.route = jasmine.createSpy()
+        Battleship.init()
+        expect(Backbone.history.start).toHaveBeenCalled()
       it 'should initialize the routers', ->
         routers = [
           'Games'
