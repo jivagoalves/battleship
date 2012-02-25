@@ -1,6 +1,8 @@
 describe 'ShipList view', ->
   beforeEach ->
-    @stub(Battleship.Views, 'Ship', true).andReturn(new Backbone.View())
+    @shipView = new Backbone.View()
+    @stub @shipView, 'render'
+    @stub(Battleship.Views, 'Ship', true).andReturn(@shipView)
     @view = new Battleship.Views.ShipList()
   it 'should be defined', ->
     expect(Battleship.Views.ShipList).toBeDefined()
@@ -18,5 +20,8 @@ describe 'ShipList view', ->
       expect(Battleship.Views.Ship.callCount).toEqual(@models.length)
       @models.forEach (model) ->
         expect(Battleship.Views.Ship).toHaveBeenCalledWith({ model: model })
+    it 'should call Ship#render for each ship', ->
+      @view.render()
+      expect(@shipView.render.callCount).toEqual(@models.length)
     it 'should return the ShipList view', ->
       expect(@view.render()).toEqual(@view)
