@@ -1,7 +1,9 @@
 describe 'ShipList view', ->
   beforeEach ->
-    @shipView = new Backbone.View({ el: 'elementA'})
-    @stub(@shipView, 'render').andReturn(@shipView)
+    @shipView = new Backbone.View({ tagName: 'li'})
+    @stub(@shipView, 'render').andCallFake ->
+      @el = document.createElement(@tagName)
+      @
     @stub(Battleship.Views, 'Ship', true).andReturn(@shipView)
     @view = new Battleship.Views.ShipList()
   it 'should be defined', ->
@@ -30,3 +32,8 @@ describe 'ShipList view', ->
       expect($.fn.append).toHaveBeenCalledWith(@shipView.el)
     it 'should return the ShipList view', ->
       expect(@view.render()).toEqual(@view)
+    it 'should produce the correct HTML', ->
+      @view.render()
+      expect(@view.$el).toBe('ul.ships')
+      expect(@view.$el).toContain(@shipView.tagName)
+      expect(@view.$el.children().length).toEqual(@models.length)
